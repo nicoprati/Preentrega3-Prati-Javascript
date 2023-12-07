@@ -1,0 +1,558 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+a:visited {
+    color: black;
+}
+
+* {
+    font-family: Montserrat, sans-serif;
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.botonera{
+    background-color: rgb(177, 174, 174);
+    width: 100%;
+    height: 100%;
+    position: sticky;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items:center;  
+}
+.botonera a{
+    padding: 0px 60px;
+}
+.menu{
+    display: inline-block;
+    justify-content: center;
+}
+.nav-item{
+    padding: 0px 20px;
+    font-size: 1.2rem;
+}
+.ms-auto{
+    margin-left: 30px;
+}
+header {
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    
+}
+header h1{
+    color: black;
+}
+    header img {
+        max-width: 100%;
+        max-height: 100%;
+        margin-top: 0.5rem;
+        margin-bottom: 2rem;
+    }
+
+body {
+    background-image: url(/media/backgrounds/SL_042620_30310_15.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    }
+
+h1 {
+    font-size: 2em;
+    display: inline-flex;
+    color: black;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: rgb(76, 77, 76);
+    font-weight: bold;
+}
+h3{
+    color: black;
+}
+p {
+    font-size: 1.2em;
+    line-height: 1.3em;
+    color: black;
+}
+section img {
+    width: 250px;
+    height: auto;
+}
+.filters{
+    display: flex;
+    justify-content: start;
+    text-align: start;
+}
+
+    .filters a{
+        color: black;
+        font-size: 1em;
+        text-decoration: none;
+        margin-bottom: 5px;
+    }
+
+    .filters a:hover{
+            color: rgb(59, 58, 58);
+    }
+    .filters span{
+        display: block;
+        color: black;
+        margin: 10px 0px;
+        letter-spacing: 1px;
+        font-size: 1em;
+        font-weight: 200px;
+    }
+
+    .filters label{
+        font-size: 1em;
+        font-weight: 300;
+    }
+
+    .filters li{
+        padding-left: 0px;
+        list-style: none;
+    }
+
+    .tienda{
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        grid-template-rows:  530 repeat(4,1fr);
+        grid-template-areas: 
+        "filters prod1 prod2 prod3"
+        "0 prod4 prod5 prod6"
+        "0 prod7 prod8 prod9";
+        gap: 10px; 
+        padding: 10px 0px;
+    }
+    
+    .tienda  .actions{
+        padding: 0px 30px;
+        grid-area: actions;
+    }
+    
+     .tienda .filters{
+        grid-area: filters;
+     }
+    
+     .tienda .prod1{
+        grid-area: prod1;
+        display: flex;
+        flex-direction: column;
+        justify-content:end;
+        align-items: center;
+        border-color: 1px black solid;
+     }
+    
+     .tienda .prod2{
+        grid-area: prod2;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+    }
+    
+     .tienda .prod3{
+        grid-area: prod3;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+    }
+    
+     .tienda .prod4{
+        grid-area: prod4;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    
+     .tienda .prod5{
+        grid-area: prod5;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+     }
+    
+    
+     .tienda .prod6{
+        grid-area: prod6;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+     }
+    
+    
+     .tienda .prod7{
+        grid-area: prod7;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+     }
+    
+    
+     .tienda .prod8{
+        grid-area: prod8;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+     }
+    
+    
+     .tienda .prod9{
+        grid-area: prod9;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+     }
+     .container{
+    background-color: rgb(133, 133, 133,0.7);
+    margin: auto;
+    border-radius: 5px;
+    text-align: center;
+    width: 90%;
+    justify-content: space-between;
+    }
+
+section{
+      padding: 30px 0px;
+}
+
+    section h2{
+            padding-bottom: 20px;
+            color: black;
+    }
+
+.container a {
+    display: flex;
+    flex-direction: column;
+}
+
+.container h2 {
+    color: black;
+    height: 50%;
+    
+}
+.container{
+    background-color: rgb(133, 133, 133,0.7);
+    margin: auto;
+    border-radius: 5px;
+    text-align: center;
+    width: 90%;
+    justify-content: space-between;
+    }
+
+section{
+      padding: 30px 0px;
+}
+
+    section h2{
+            padding-bottom: 20px;
+            color: black;
+    }
+
+.container a {
+    display: flex;
+    flex-direction: column;
+}
+
+.container h2 {
+    color: black;
+    height: 50%;
+    
+}
+.productos-mas-vendidos{
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+.productos-mas-vendidos figcaption, .categorias div {
+    font-size: 1.2rem;
+    padding-bottom: 10px;
+}
+
+.productos-mas-vendidos img{
+    width: auto;
+}
+
+figure p{
+    font-size: 0.9rem;
+    
+}
+.categorias{
+    background-color: rgb(133, 133, 133,0.7);
+    margin:auto;
+    border-radius: 5px;
+    text-align: center;
+    width: 80%;
+    justify-content: space-between;
+    }
+
+.cards-categoria{
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+
+}
+
+.card-categoria img {
+    max-width: 20rem;
+    max-height: 20rem;    
+}
+
+.card-categoria h3{
+    margin-bottom: 10px;
+}
+
+
+main{
+    padding-bottom: 50px;  
+}
+
+    main section {
+        text-align: center;
+    }
+
+        main section a {
+            display: inline-flex;
+            margin:3px 3px 10px;
+            text-decoration: none;
+            
+        }
+
+            main section a h3 {
+                /*  display: inline-flex; */
+                text-decoration: none;
+                padding-right: 10px;
+                text-align: center;
+            }
+                main form div {
+                    line-height: 2em;
+                }
+button{
+    border: none;
+    background-color: rgb(211, 208, 208);
+    border-radius: 4px;
+    padding: 7px;
+    margin: 10px;
+}
+button:hover{
+    cursor: pointer;
+    background-color: rgb(131, 121, 121);
+}
+.armatupc h2{
+    padding-bottom: 40px;
+}
+
+.armatupc h3{
+    padding-bottom: 20px;
+}
+
+.armatupc a img{
+    padding: 20px;
+    
+}
+
+.nosotros h2{
+    padding-top: 40px;
+}
+
+.nosotros, .ubicacion {
+    padding: 20px 10%;
+}
+
+.nosotros-container, .ubi-container {
+    display: flex;
+    gap: 2rem;
+    padding: 20px;
+}
+
+.nosotros-container img {
+    width: 50%;
+}
+
+.ubi-container p{
+    display: block;
+    flex-direction: column;
+}
+.logointel {
+    height: 300px;
+    width: auto;
+}
+
+.logoamd {
+    height: 300px;
+    width: auto;
+}
+
+.filters form{
+    margin-left: 30px;
+    padding: 0px 0px 20px 20px;
+    background-color:rgb(177, 174, 174, 0.8);
+    width: 300px;
+    height: 423px;
+}
+.filters form ul{
+    padding-left: 0;
+
+}
+footer{
+    display: flex;
+    flex-direction: row;
+    background-color:rgb(177, 174, 174); ;
+    width: 100%;
+    justify-content:space-around;
+    align-items: center; 
+    text-decoration: none;  
+}
+
+footer div ul li {
+    display: inline-flex;
+    height: 50px;
+    padding: 20px 30px; 
+    justify-content: center;
+    text-align: center;  
+}
+.pie ul li a {
+    text-decoration: none;
+    justify-content: center;
+    color: black;
+}
+.formulario{
+    width: 100%;
+    align-items: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.formulario h2{
+    padding-bottom: 20px;
+}
+main .formulario .form-contact{  
+    background-color:rgb(177, 174, 174); 
+    width: 400px; 
+    padding: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.form-contact input{
+    width: 80%;
+    align-items: start;
+    border-radius: 5px;
+    border: none;
+}
+
+.form-contact label{
+    width: 80%;
+    font-size: 1.2rem; 
+}
+
+.form-contact textarea{
+    width: 80%;
+    height: 150px;
+    border-radius: 5px;
+}
+
+:root {
+    --color-blanco: #e9dbdb;
+    --color-gris: #504848;
+    --color-azul: #2c50ee;
+}
+
+#container-general {
+    display: flex;
+    flex-direction: row;
+}
+
+#section-productos {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.card-producto {
+    width: 25%;
+    margin: 20px;
+    text-align: center;
+}
+
+.font {
+    font-size: 18px;
+    font-family: oswald, sans-serif;
+}
+
+.img-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.img-container img {
+    width: 90%;
+    height: 50%;
+    margin: 10px;
+}
+
+.boton {
+    font-size: 15px;
+    font-family: oswald, sans-serif;
+    width: 50%;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+    align-self: center;
+    color: var(--color-blanco);
+    background-color: var(--color-gris);
+}
+
+.info-producto {
+    display: flex;
+    flex-direction: column;
+}
+
+#section-carrito {
+    font-family: oswald, sans-serif;
+    width: 30%;
+    height: 30%;
+    margin: 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: var(--color-azul);
+    border-radius: 10px;
+    position: sticky;
+    top: 10px;
+    color: var(--color-blanco);
+}
+
+#section-carrito div {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
