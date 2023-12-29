@@ -1,15 +1,16 @@
-
-window.addEventListener('load', function () {
-  carrito = cargarCarrito();
+window.addEventListener('load', () => {
+  let carrito = cargarCarrito();
   vaciarCarrito();
+  cargarProductos(); // Agregar la carga de productos desde el JSON
 });
 
+let productos = []; // Declarar la variable productos
 
-//tomo control sobre las secciones del HTML
+// Tomo control sobre las secciones del HTML
 let sectionproductos = document.getElementById("section-productos");
 let sectionCarrito = document.getElementById("section-carrito");
 
-//creacion de la seccion carrito con DOM
+// Creación de la sección carrito con DOM
 let totalCompra = document.createElement("div");
 totalCompra.innerHTML = "<h2>Total: $</h2>";
 sectionCarrito.appendChild(totalCompra);
@@ -31,11 +32,10 @@ botonFinalizar.innerText = "Finalizar compra";
 sectionCarrito.appendChild(botonFinalizar);
 botonFinalizar.setAttribute("class", "boton");
 
-
-//Le agrego un evento al boton para que muestre el precio final
+// Le agrego un evento al botón para que muestre el precio final
 botonFinalizar.onclick = () => {
   const precioFinal = montoTotalCompra.innerText;
-  //uso sweet alert para que el usuario confirme su compra, cuando toca si se vacia el carrito
+  // Uso sweet alert para que el usuario confirme su compra, cuando toca sí se vacía el carrito
   Swal.fire({
     title: '¿Deseas finalizar tu compra?',
     text: `Total a pagar: $${precioFinal}`,
@@ -48,7 +48,7 @@ botonFinalizar.onclick = () => {
     if (result.isConfirmed) {
       Swal.fire(
         'Compra confirmada',
-        '¡Sus productos estan en camino!',
+        '¡Sus productos están en camino!',
         'success'
       )
       vaciarCarrito();
@@ -56,34 +56,54 @@ botonFinalizar.onclick = () => {
   })
 }
 
-
-//renderizado de los productos en cards
-for (const producto of productos) {
-  let container = document.createElement("div");
-  container.setAttribute("class", "card-producto");
-  container.innerHTML = ` <div class="img-container">
-                            <img src="${producto.foto}" alt="${producto.nombre}" class="img-producto"/>
-                            </div>
-                            <div class="info-producto">
-                            <p class="font">${producto.nombre}</p>
-                            <strong class="font">$${producto.precio}</strong>
-                            <button class="boton" id="btn${producto.id}"> Agregar al carrito </button>
-                            </div>`;
-  sectionproductos.appendChild(container);
-  //Evento para que los productos se agreguen al carrito al hacer click en el boton
-  document.getElementById(`btn${producto.id}`).onclick = () => agregarAlCarrito(`${producto.id}`);
+// Renderizado de los productos en cards
+const renderizarProductos = (productos) => {
+  for (const producto of productos) {
+    let container = document.createElement("div");
+    container.setAttribute("class", "card-producto");
+    container.innerHTML = ` <div class="img-container">
+                              <img src="${producto.foto}" alt="${producto.nombre}" class="img-producto"/>
+                              </div>
+                              <div class="info-producto">
+                              <p class="font">${producto.nombre}</p>
+                              <strong class="font">$${producto.precio}</strong>
+                              <button class="boton" id="btn${producto.id}"> Agregar al carrito </button>
+                              </div>`;
+    sectionproductos.appendChild(container);
+    // Evento para que los productos se agreguen al carrito al hacer clic en el botón
+    document.getElementById(`btn${producto.id}`).onclick = () => agregarAlCarrito(`${producto.id}`);
+  }
 }
 
+// Nueva función para cargar productos desde el JSON
+const cargarProductos = () => {
+  // Cambiar la ruta del archivo JSON según tu ubicación y nombre de archivo
+  fetch('../JSON/productos.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Error de red: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(productosDesdeJSON => {
+      // Llamar a una función para renderizar los productos desde el JSON
+      renderizarProductos(productosDesdeJSON);
+      // Asignar los productos cargados a la variable productos
+      productos = productosDesdeJSON;
+    })
+    .catch(error => {
+      console.error('Error al cargar productos desde el JSON:', error);
+    });
+};
 
-
-//Funciones
-function agregarAlCarrito(id) {
+// Funciones
+const agregarAlCarrito = (id) => {
   carrito.push(productos.find(p => p.id == id));
   localStorage.setItem("carrito", JSON.stringify(carrito));
   calcularTotalCarrito();
 }
 
-function calcularTotalCarrito() {
+const calcularTotalCarrito = () => {
   let total = 0;
   for (const producto of carrito) {
     total += producto.precio;
@@ -92,21 +112,14 @@ function calcularTotalCarrito() {
   cantproductos.innerText = carrito.length;
 }
 
-function vaciarCarrito() {
+const vaciarCarrito = () => {
   montoTotalCompra.innerText = "0";
   cantproductos.innerText = "0";
   localStorage.clear();
   carrito = [];
 }
 
-
-function cargarCarrito() {
+const cargarCarrito = () => {
   let carrito = JSON.parse(localStorage.getItem("carrito"));
-  if (carrito == null) {
-    return [];
-  } else {
-    return carrito;
-  }
+  return carrito == null ? [] : carrito;
 }
-
-
